@@ -15,7 +15,7 @@ from glide_finetune.wds_loader import glide_wds_loader
 
 
 def run_glide_finetune(
-    data_dir="/content/data",
+    data_dir="/kaggle/input/mnist1000-with-one-image-folder/HAM1000_images",
     batch_size=1,
     learning_rate=1e-5,
     adam_weight_decay=0.0,
