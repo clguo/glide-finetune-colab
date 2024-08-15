@@ -12,10 +12,11 @@ from glide_finetune.glide_util import load_model
 from glide_finetune.loader import TextImageDataset
 from glide_finetune.train_util import wandb_setup
 from glide_finetune.wds_loader import glide_wds_loader
-
+import wandb
+wandb.login(key='c20490ac876eedd2c591a113f18befd0a622cf4d')
 
 def run_glide_finetune(
-    data_dir="/kaggle/input/mnist1000-with-one-image-folder/HAM1000_images",
+    data_dir="./data",
     batch_size=1,
     learning_rate=1e-5,
     adam_weight_decay=0.0,
@@ -289,7 +290,7 @@ if __name__ == "__main__":
         data_dir = glob(os.path.join(args.data_dir, "*.tar"))
     
     run_glide_finetune(
-        data_dir='/content/data',
+        data_dir='./data',
         batch_size=args.batch_size,
         learning_rate=args.learning_rate,
         adam_weight_decay=args.adam_weight_decay,
