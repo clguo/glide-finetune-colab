@@ -65,6 +65,7 @@ class TextImageDataset(Dataset):
 
         self.image_files = get_image_files_dict(folder)
         if use_captions:
+            print(folder)
             self.text_files = get_text_files_dict(folder)
             self.keys = get_shared_stems(self.image_files, self.text_files)
             print(f"Found {len(self.keys)} images.")

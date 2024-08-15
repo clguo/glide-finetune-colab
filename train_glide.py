@@ -205,7 +205,7 @@ def parse_args():
     parser.add_argument("--freeze_diffusion", "-fz_unet", action="store_true")
     parser.add_argument("--project_name", "-name", type=str, default="glide-finetune")
     parser.add_argument("--activation_checkpointing", "-grad_ckpt", action="store_true")
-    parser.add_argument("--use_captions", "-txt", action="store_true")
+    parser.add_argument("--use_captions", "-txt", action="store_true",default=True)
     parser.add_argument("--epochs", "-epochs", type=int, default=20)
     parser.add_argument(
         "--test_prompt",
@@ -232,6 +232,7 @@ def parse_args():
         "-wds",
         action="store_true",
         help="Enables webdataset (tar) loading",
+        default=False
     )
     parser.add_argument(
         "--wds_image_key",
@@ -290,7 +291,7 @@ if __name__ == "__main__":
         data_dir = glob(os.path.join(args.data_dir, "*.tar"))
     
     run_glide_finetune(
-        data_dir='./data',
+        data_dir=args.data_dir,
         batch_size=args.batch_size,
         learning_rate=args.learning_rate,
         adam_weight_decay=args.adam_weight_decay,
